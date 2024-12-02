@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-
-
 public class Registration : MonoBehaviour
 {
     public InputField nameField;
