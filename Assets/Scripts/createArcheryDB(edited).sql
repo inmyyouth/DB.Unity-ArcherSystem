@@ -12,6 +12,7 @@ CREATE TABLE `equipment`(
 `description` varchar(50) NOT NULL,
 PRIMARY KEY (`equipmentID`)
 ); 
+
 CREATE TABLE `competition`(
 `competitionID` INT NOT NULL AUTO_INCREMENT, 
 `name` varchar(50) NOT NULL, 
@@ -20,11 +21,13 @@ CREATE TABLE `competition`(
 `championship` boolean, 
 PRIMARY KEY (`competitionID`)
 );
-create table `category`(
+
+CREATE TABLE `category`(
 `categoryID` INT NOT NULL AUTO_INCREMENT, 
 `description` varchar(50),
 PRIMARY KEY(`categoryID`)
 );
+
 CREATE TABLE `archer`(
 `archerID` INT NOT NULL AUTO_INCREMENT,
 `name` varchar(100) NOT NULL, 
@@ -34,6 +37,7 @@ CREATE TABLE `archer`(
 PRIMARY KEY (`archerID`),
 CONSTRAINT FOREIGN KEY (`categoryID`) REFERENCES category(`categoryID`)
 );
+
 CREATE TABLE `archer_category`(
 `archerCatID` INT NOT NULL AUTO_INCREMENT, 
 `archerID` INT NOT NULL, 
@@ -46,6 +50,7 @@ CONSTRAINT FOREIGN KEY (`equipmentID`) REFERENCES equipment(`equipmentID`),
 CONSTRAINT FOREIGN KEY (`competitionID`) REFERENCES competition(`competitionID`),
 CONSTRAINT FOREIGN KEY (`categoryID`) REFERENCES category(`categoryID`)
 );
+
 -- alter table `archer`
 -- add CONSTRAINT FOREIGN KEY (`categoryID`) REFERENCES category(`categoryID`);
 CREATE TABLE `targetface`(
@@ -53,6 +58,7 @@ CREATE TABLE `targetface`(
 `targetDesc` varchar (30) NOT NULL,
 PRIMARY KEY (`targetFaceID`)
 );
+
 CREATE TABLE `round`(
 `roundID` INT NOT NULL AUTO_INCREMENT, 
 `name` varchar(30) NOT NULL, 
@@ -61,6 +67,7 @@ CREATE TABLE `round`(
 PRIMARY KEY (`roundID`),
 CONSTRAINT FOREIGN KEY (`targetFaceID`) REFERENCES targetface(`targetFaceID`)
 );
+
 CREATE TABLE `score`(
 `scoreID` INT NOT NULL AUTO_INCREMENT, 
 `archerID` INT NOT NULL, 
@@ -81,11 +88,13 @@ CONSTRAINT FOREIGN KEY (`roundID`) REFERENCES round(`roundID`),
 CONSTRAINT FOREIGN KEY (`competitionID`) REFERENCES competition(`competitionID`),
 CONSTRAINT FOREIGN KEY (`categoryID`) REFERENCES archer_category(`archerCatID`)
 ); 
+
 CREATE TABLE `recorder`(
 `recorderID` INT NOT NULL AUTO_INCREMENT, 
 `name` varchar(30) NOT NULL, 
 PRIMARY KEY (`recorderID`)
 );
+
 CREATE TABLE `validscore`(
 `recorderID` INT NOT NULL, 
 `scoreID` INT NOT NULL, 
