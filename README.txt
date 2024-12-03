@@ -18,7 +18,6 @@ Tools and Services:
     Visual Studio Code - Used to edit scripts
 
     Confluence - Used for documentation and collaboration within the team
-      https://inyoung0010.atlassian.net/wiki/spaces/ComputerDe/pages/1114114/Team+Homepage
     Jira - Used for project management and issue tracking
     Microsoft Teams - Used for team communication
     Canva - Used for creating presentation
